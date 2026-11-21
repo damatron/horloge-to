@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Horloge à Temps Organique (To)
+Exec=horloge_to
+Icon=horloge-to
+Type=Application
+Categories=Utility;
