@@ -1,17 +1,16 @@
-# horloge_to
+# Horloge à Temps Organique (To)
 
-A new Flutter project.
+**Horloge à Temps Organique (To)** est une application multiplateforme développée avec Flutter qui affiche et calcule l'heure solaire locale en temps réel, accompagnée d'un système complet d'alarmes personnalisables.
 
-## Getting Started
+## Fonctionnalités principales
 
-This project is a starting point for a Flutter application.
+* **Calcul solaire astronomique (NOAA) :** Détermination précise du temps solaire local à partir des coordonnées géographiques de l'utilisateur (géolocalisation GPS ou saisie manuelle).
+* **Affichage grand écran :** Interface claire et lisible conçue pour un usage quotidien sur ordinateur comme sur mobile.
+* **Alarmes personnalisées :** Création et gestion d'alarmes avec sélection de fichiers audio locaux (sonneries personnalisées).
+* **Paramètres sauvegardés :** Conservation automatique des préférences et de la configuration utilisateur entre les sessions.
 
-A few resources to get you started if this is your first Flutter project:
+## Plates-formes et distribution
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* **Linux (`.deb` et `.AppImage`) :** Paquet installable pour Linux Mint/Ubuntu et exécutable portable.
+* **Android (`.apk`) :** Package compilé (`app-release.apk`) compatible avec Android SDK 36+.
+* **Windows (`.exe`) :** Compilation automatisée via **GitHub Actions** (`.github/workflows/build_windows.yml`).
