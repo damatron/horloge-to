@@ -62,3 +62,7 @@ build/
 dist/
 *.deb
 *.AppImage
+build/
+dist/
+*.deb
+*.AppImage
