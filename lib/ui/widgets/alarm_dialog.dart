@@ -49,9 +49,9 @@ class _AlarmDialogState extends State<AlarmDialog> {
       type: FileType.custom,
       allowedExtensions: ['mp3', 'wav', 'ogg'],
     );
-    if (result != null && result.files.isNotEmpty && result.files.single.path != null) {
+    if (result != null && result.isNotEmpty && result.single.path != null) {
       setState(() {
-        _soundCtrl.text = result.files.single.path!;
+        _soundCtrl.text = result.single.path!;
       });
     }
   }
