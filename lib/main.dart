@@ -1,4 +1,3 @@
-==> lib/main.dart <==
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -200,7 +199,6 @@ class _HorlogeHomePageState extends State<HorlogeHomePage> {
             ),
             onPressed: () {
 
-==> lib/ui/views/grand_ecran_view.dart <==
 import 'package:flutter/material.dart';
 
 class GrandEcranView extends StatelessWidget {
@@ -307,7 +305,6 @@ class GrandEcranView extends StatelessWidget {
   }
 }
 
-==> lib/ui/views/parametres_view.dart <==
 import 'package:flutter/material.dart';
 import '../../models/alarm_model.dart';
 
@@ -509,7 +506,6 @@ class ParametresView extends StatelessWidget {
               // Résumé des prochaines alarmes
               const Divider(color: _navy),
 
-==> lib/ui/widgets/alarm_dialog.dart <==
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import '../../models/alarm_model.dart';
