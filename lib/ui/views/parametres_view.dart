@@ -66,13 +66,21 @@ class ParametresView extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: _navy),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: _navy,
+                          surfaceTintColor: Colors.transparent,
+                        ),
                         onPressed: onAddAlarm,
                         child: const Text('+', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       ),
                       const SizedBox(width: 8),
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: _navy, foregroundColor: Colors.white),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: _navy,
+                          foregroundColor: Colors.white,
+                          surfaceTintColor: Colors.transparent,
+                        ),
                         onPressed: onBackToGrandEcran,
                         child: const Text('Grand Écran', style: TextStyle(fontWeight: FontWeight.bold)),
                       ),
@@ -90,9 +98,9 @@ class ParametresView extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.55),
+                  color: Colors.white.withValues(alpha: 0.75),
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: _navy.withValues(alpha: 0.25)),
+                  border: Border.all(color: _navy.withValues(alpha: 0.35)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,7 +163,7 @@ class ParametresView extends StatelessWidget {
                     ? const Center(
                         child: Text(
                           "Aucune alarme programmée. Cliquez sur '+' pour en ajouter.",
-                          style: TextStyle(color: Colors.black54, fontSize: 14),
+                          style: TextStyle(color: Colors.black87, fontSize: 14),
                         ),
                       )
                     : ListView.builder(
@@ -163,11 +171,13 @@ class ParametresView extends StatelessWidget {
                         itemBuilder: (context, idx) {
                           final alarm = alarms[idx];
                           return Card(
-                            color: Colors.white.withValues(alpha: 0.8),
+                            color: Colors.white.withValues(alpha: 0.9),
+                            surfaceTintColor: Colors.transparent,
                             child: ListTile(
                               leading: Checkbox(
                                 value: alarm.active,
                                 activeColor: _navy,
+                                side: const BorderSide(color: _navy, width: 2),
                                 onChanged: (val) => onToggleAlarm(idx, val ?? true),
                               ),
                               title: Text(

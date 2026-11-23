@@ -87,6 +87,8 @@ class GrandEcranView extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: mintAccent,
                       foregroundColor: bgDark,
+                      surfaceTintColor: Colors.transparent,
+                      elevation: 2,
                       padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
                       textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                     ),

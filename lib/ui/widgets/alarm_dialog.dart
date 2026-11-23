@@ -49,9 +49,9 @@ class _AlarmDialogState extends State<AlarmDialog> {
       type: FileType.custom,
       allowedExtensions: ['mp3', 'wav', 'ogg'],
     );
-    if (result.isNotEmpty && result.single.path != null) {
+    if (result != null && result.files.isNotEmpty && result.files.single.path != null) {
       setState(() {
-        _soundCtrl.text = result.single.path!;
+        _soundCtrl.text = result.files.single.path!;
       });
     }
   }
@@ -86,6 +86,11 @@ class _AlarmDialogState extends State<AlarmDialog> {
 
     return AlertDialog(
       backgroundColor: _cream,
+      surfaceTintColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: _navy, width: 1.5),
+      ),
       title: Text(
         isEdit ? "Éditer l'alarme" : "Programmer une alarme",
         style: const TextStyle(color: _navy, fontWeight: FontWeight.bold),
@@ -117,7 +122,11 @@ class _AlarmDialogState extends State<AlarmDialog> {
                   ),
                   const SizedBox(width: 12),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: _navy),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: _navy,
+                      surfaceTintColor: Colors.transparent,
+                    ),
                     onPressed: () => setState(() => _type = _type == 'Standard' ? 'To' : 'Standard'),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -152,7 +161,11 @@ class _AlarmDialogState extends State<AlarmDialog> {
                   ),
                   const SizedBox(width: 8),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: _navy),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: _navy,
+                      surfaceTintColor: Colors.transparent,
+                    ),
                     onPressed: _pickAudioFile,
                     child: const Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),
@@ -163,7 +176,11 @@ class _AlarmDialogState extends State<AlarmDialog> {
               ),
               const SizedBox(height: 12),
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: _navy),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: _navy,
+                  surfaceTintColor: Colors.transparent,
+                ),
                 onPressed: () => setState(() {
                   _duration = _duration == 'Arrêt après 20 sec'
                       ? 'Sonnerie continue'
@@ -176,6 +193,8 @@ class _AlarmDialogState extends State<AlarmDialog> {
                 title: const Text('Une seule fois', style: TextStyle(color: _navy, fontWeight: FontWeight.bold)),
                 value: _once,
                 activeColor: _navy,
+                side: const BorderSide(color: _navy, width: 2),
+                controlAffinity: ListTileControlAffinity.leading,
                 onChanged: (val) {
                   setState(() {
                     _once = val ?? true;
@@ -187,12 +206,21 @@ class _AlarmDialogState extends State<AlarmDialog> {
               ),
               Wrap(
                 spacing: 8,
+                runSpacing: 6,
                 children: _days.keys.map((day) {
+                  final isSelected = _days[day] ?? false;
                   return FilterChip(
                     label: Text(day),
-                    selected: _days[day]!,
+                    selected: isSelected,
+                    backgroundColor: Colors.white,
                     selectedColor: _navy,
-                    labelStyle: TextStyle(color: _days[day]! ? Colors.white : _navy),
+                    surfaceTintColor: Colors.transparent,
+                    side: const BorderSide(color: _navy),
+                    checkmarkColor: Colors.white,
+                    labelStyle: TextStyle(
+                      color: isSelected ? Colors.white : _navy,
+                      fontWeight: FontWeight.bold,
+                    ),
                     onSelected: (selected) {
                       setState(() {
                         _days[day] = selected;
@@ -209,10 +237,14 @@ class _AlarmDialogState extends State<AlarmDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('Annuler', style: TextStyle(color: _navy)),
+          child: const Text('Annuler', style: TextStyle(color: _navy, fontWeight: FontWeight.bold)),
         ),
         ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: _navy, foregroundColor: Colors.white),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: _navy,
+            foregroundColor: Colors.white,
+            surfaceTintColor: Colors.transparent,
+          ),
           onPressed: _submit,
           child: Text(isEdit ? 'Enregistrer' : 'OK'),
         ),
