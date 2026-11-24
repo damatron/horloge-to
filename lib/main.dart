@@ -17,3 +17,11 @@ import 'dart:io';
     });
   }
 }
+                  child: const Text('Arrêter', style: TextStyle(fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+      );
+    });
+  }
+}
